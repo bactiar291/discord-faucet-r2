@@ -1,0 +1,18 @@
+{
+  "name": "discord-faucet-r2",
+  "version": "1.0.0",
+  "description": "Automated faucet claimer for Discord networks",
+  "main": "faucet.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "form-data": "^4.0.0",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
