@@ -1,14 +1,14 @@
 require('dotenv').config();
-const axios = require('axios');
-const FormData = require('form-data');
-const { v4: uuid } = require('uuid');
+const axios = require("axios");
+const FormData = require("form-data");
+const { v4: uuid } = require("uuid");
 
-const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
+const DISCORD_TOKEN = process.env.TOKEN;
 const APP_ID = "1356609826230243469";
 const GUILD_ID = "1308368864505106442";
 const COMMAND_ID = "1356665931056808211";
 const COMMAND_VERSION = "1356665931056808212";
-const wallet_address = "0xbfc14c1b58d6848e2c312b9bdff27bd7d0d72821";
+const wallet_address = process.env.WALLET_ADDRESS;
 
 const NETWORK_CHANNEL_IDS = {
     "Sepolia": "1339883019556749395",
@@ -33,10 +33,10 @@ async function fetchMyUserId() {
 async function claimFaucet(network) {
     try {
         if (!DISCORD_TOKEN) {
-            throw new Error("DISCORD_TOKEN tidak ditemukan di .env");
+            throw new Error("TOKEN tidak ditemukan di .env");
         }
         if (!wallet_address) {
-            throw new Error("Wallet address tidak tersedia");
+            throw new Error("WALLET_ADDRESS tidak tersedia di .env");
         }
         const channelId = NETWORK_CHANNEL_IDS[network];
         if (!channelId) {
