@@ -11,12 +11,7 @@ const COMMAND_VERSION = "1356665931056808212";
 const wallet_address = process.env.WALLET_ADDRESS;
 
 const NETWORK_CHANNEL_IDS = {
-    "Sepolia": "1339883019556749395",
-    "Arbitrum Sepolia": "1364457925632065620",
-    "Plume": "1364457608962117774",
-    "BSC": "1372399850339045488",
-    "Monad": "1367156681154236467",
-    "Base Sepolia": "1374560325059350538"
+    "Sepolia": "1339883019556749395"
 };
 
 let MY_USER_ID = null;
@@ -102,12 +97,7 @@ async function claimFaucet(network) {
 }
 
 async function main() {
-    const networks = Object.keys(NETWORK_CHANNEL_IDS);
-    for (const network of networks) {
-        await claimFaucet(network);
-        const delay = Math.floor(Math.random() * 5000) + 5000;
-        await new Promise(resolve => setTimeout(resolve, delay));
-    }
+    await claimFaucet("Sepolia");
 }
 
 main().catch(console.error);
